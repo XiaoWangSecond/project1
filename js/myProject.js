@@ -46,7 +46,7 @@ let boom = new Array()
 //测试炸弹总数
 let totalBoom = 0
 //总得分
-let totalScore = 0
+let totalScore
 
 let timeView = document.getElementById('timer');
 
@@ -81,6 +81,7 @@ function start() {
     //     treasures[i] = 0;
     // }
     //重新设置
+    totalScore = 0
     totalBoom = 0
     boy.col = 0
     boy.row = 9
@@ -165,6 +166,7 @@ function stop() {
     // }
 
     clearInterval(timer);
+    totalScore = 0
     scoreView.innerHTML = '0';
     timeView.innerHTML = '0';
 
