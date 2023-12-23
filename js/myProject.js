@@ -88,7 +88,6 @@ function start() {
     //随机生成障碍物和炸弹的位置（对应某个格子）
     for (let i = 0; i < rows; i++) {
         boom[i] = genBoom(i);
-        //console.log(boom[i]);
         //不让炸弹和障碍物在人物上
         if (i == 9 && boom[i].col == 0) {
             //console.log(boom[i].col);
@@ -102,6 +101,19 @@ function start() {
         }
         //console.log(boom[i]);
     }
+    let sum = 0
+    for (let i in boom) {
+        if (boom[i].sign == 1) {
+            sum = 1;
+        }
+    }
+    if (sum != 1) {
+        boom[2].sign = 1;
+        boom[2].img = coinImages[1]
+    }
+
+
+
     drawinterface();
     keyboard()
     //启动计时器
@@ -159,12 +171,6 @@ function stop() {
     document.getElementById('startBtn').disabled = false;
     //清空格子
     clearBricks();
-
-    // for (let i in treasures) {
-    //     treasures[i] = 0;
-    //     trLables[i].innerHTML = '0'
-    // }
-
     clearInterval(timer);
     totalScore = 0
     scoreView.innerHTML = '0';
@@ -238,7 +244,7 @@ function remove() {
     for (let i in boom) {
         if (boom[i].row == boy.row && boom[i].col == boy.col && boom[i].sign == 1) {
             boom[i].cnt = 1;
-            totalScore ++;
+            totalScore++;
             scoreView.innerHTML = totalScore
             drawinterface()
             if (totalBoom == 0) {
