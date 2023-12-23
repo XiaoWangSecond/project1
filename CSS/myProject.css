@@ -1,0 +1,60 @@
+ * {
+     margin: 0;
+     padding: 0;
+     margin: 0 auto;
+     text-align: center;
+ }
+
+ .playarea {
+     margin: 0 auto;
+     text-align: center;
+     padding: 10px;
+     border: 1px dashed orange;
+     width: 800px;
+     height: 620px;
+     border-radius: 15px;
+     display: flex;
+
+ }
+
+ .treasures span {
+     padding: 10px 0px 15px 10px;
+ }
+
+ .treasures img {
+     width: 25px;
+ }
+
+ #treasures span {
+     padding: 10px 0px 15px 10px;
+ }
+
+ #treasures img {
+     width: 25px;
+ }
+
+ #canvasDiv {
+     text-align: center;
+ }
+
+ span {
+     display: block;
+     height: 20px;
+     padding: 5px 0px 10px 0px;
+ }
+
+ #record {
+     margin: 25px 5px 10px 15px;
+     padding: 10px;
+     border: 1px dashed orange;
+     height: 500px;
+     width: 260px;
+ }
+
+ #recorditem {
+     font-size: 12px;
+ }
+
+ #record p {
+     padding: 10px;
+ }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排雷小游戏</title>
+    <link rel="stylesheet" href="../CSS/myProject.css">
+</head>
+<body onload="init()">
+    <h1>排雷小游戏</h1>
+    <div class="playarea">
+        <div id="canvasDiv">
+            <div>
+                <span>计时：<label id="timer" for="">0</label></span>
+                <span>记分：<label id="score" for="">0</label></span>
+            </div>
+            <canvas id="myCanvas" width="402px" height="500px">
+
+            </canvas>
+            <div>
+                <button  onclick="start()" id="startBtn">开始</button>
+                <button onclick="stop()" id="stopBtn">结束</button>
+            </div>  
+        </div>
+        <div>
+            <div class="treasures">
+                <span>
+                    <img src="../img/bar.png" alt=""><label for="">障碍物</label>
+                    <img src="../img/boom.png" alt=""><label for="">炸弹</label>
+                    <img src="../img/orange.png" alt=""><label for="">干扰物</label>
+                    <img src="../img/boy.png" alt=""><label for="">拆弹员</label>
+                   
+                </span>
+            </div>
+            <div id="record">
+                <p>游戏记录</p>
+                <div>
+                    <div id="recordItem"></div>
+                </div>
+            </div>
+            <div>
+                <button onclick="clearHistory()">清除历史记录</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/myProject.js"></script>
+</body>
+</html>
