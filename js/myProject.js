@@ -16,6 +16,7 @@ let coinImages = document.querySelectorAll(".treasures img")
 //console.log(coinImages);
 
 
+//所有内容都实现
 //定义历史记录显示对象
 let historyView = document.getElementById('recordItem');
 
@@ -55,16 +56,21 @@ function init() {
     boy = genboy();
     //console.log(boy);
 }
+
 function start() {
     //游戏开始后不能点击 开始按钮
 
     document.getElementById('startBtn').disabled = true;
-
+    document.getElementById('startBtn').innerHTML = "下一关"
     //重新设置初始化
     totalScore = 0
     totalBoom = 0
     boy.col = 0
     boy.row = 9
+    clearInterval(timer);
+    totalScore = 0
+    scoreView.innerHTML = '0';
+    timeView.innerHTML = '0';
     //随机生成障碍物和炸弹的位置（对应某个格子）
     for (let i = 0; i < rows; i++) {
         boom[i] = genBoom(i);
@@ -86,14 +92,11 @@ function start() {
         if (boom[i].sign == 1) {
             sum = 1;
         }
-    }
+    }   
     if (sum != 1) {
         boom[2].sign = 1;
         boom[2].img = coinImages[1]
     }
-
-
-
     drawinterface();
     keyboard()
     //启动计时器
@@ -230,6 +233,7 @@ function remove() {
             if (totalBoom == 0) {
                 clearInterval(timer);
                 alert('炸弹已经拆除完毕')
+                document.getElementById('startBtn').disabled = false;
                 //游戏记录
                 let dateTime = new Date();
                 let dtStr = dateTime.toLocaleString();
@@ -240,7 +244,6 @@ function remove() {
                 let storage = window.localStorage
                 if (typeof (storage) == 'undefined') {
                     alert("浏览器不支持LocalStorge")
-
                     //直接写在页面上
                     let span = document.createElement('span')
                     span.innerHTML = itemStr
@@ -257,7 +260,7 @@ function remove() {
 }
 
 
-//定义刷新
+//定义时间显示
 function refresh() {
     time += interval;
     timeView.innerHTML = time / 1000;
